@@ -8,12 +8,12 @@ interface TabnavProps {
 const Tabnav: React.FC<TabnavProps> = () => {
   return (
     <>
-        <Link to='/'></Link>
+        <Link to='/'>Homepage</Link>
         <TabNav.Root>
-            <TabNav.Link href="#" active>
+            <TabNav.Link href="./tabnav">
                 Account
             </TabNav.Link>
-            <TabNav.Link href="./documents">Documents</TabNav.Link>
+            <TabNav.Link href="./documents" active>Documents</TabNav.Link>
             <TabNav.Link href="#">Settings</TabNav.Link>
         </TabNav.Root>
     </>
