@@ -1,4 +1,5 @@
 import { TabNav } from "@radix-ui/themes";
+import { Link } from "react-router-dom";
 
 interface TabnavProps {
   
@@ -7,6 +8,7 @@ interface TabnavProps {
 const Tabnav: React.FC<TabnavProps> = () => {
   return (
     <>
+        <Link to='/'>Homepage</Link>
         <TabNav.Root>
             <TabNav.Link href="#" active>
                 Account
