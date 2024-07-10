@@ -1,8 +1,9 @@
 import './App.css'
-import { Routes, Route} from 'react-router-dom'
-import Tabnav from './components/Tabnav'
-import Homepage from './components/Homepage'
-import Documents from './components/Documents'
+import { Routes, Route } from 'react-router-dom'
+import Profile from './components/Profile/Profile'
+import Wall from './components/Wall/Wall'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
 
 function App() {
 
@@ -10,9 +11,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/tabnav" element={<Tabnav />}/>
-        <Route path="/documents" element={<Documents />}/>
-        <Route path="/" element={<Homepage/>}/>
+        <Route path="/" element={<Wall />}/>
+        <Route path="/profile" element={<Profile />}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </>
   )
