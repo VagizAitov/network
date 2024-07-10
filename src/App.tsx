@@ -1,5 +1,7 @@
 import './App.css'
 import { Dialog, Text, TextField, Button, Flex } from '@radix-ui/themes'
+import { Routes, Route, Link } from 'react-router-dom'
+import Tabnav from './components/Tabnav'
 
 function App() {
 
@@ -50,6 +52,10 @@ function App() {
           </Flex>
         </Dialog.Content>
       </Dialog.Root>
+      <Routes>
+        <Route path="/tabnav" element={<Tabnav />}/>
+      </Routes>
+      <Link to="/tabnav">Tabnav</Link>
     </>
   )
 }
