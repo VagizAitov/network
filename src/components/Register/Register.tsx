@@ -1,16 +1,40 @@
 import classes from './register.module.scss'
 import { Dialog, Flex, Button, Text, TextField, Separator } from '@radix-ui/themes';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { auth } from '../../firebase';
+
+import { useState } from 'react';
+
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 
 interface RegisterProps {
   
 }
-
 const Register: React.FC<RegisterProps> = () => {
+  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState('');
+  const [isErr, setIsErr] = useState('false');
+
+  const navigate = useNavigate();
+
+  const register = () => {
+    createUserWithEmailAndPassword(auth, email, pass)
+    .then((user) => {
+      console.log(user);
+      setIsErr('');
+      setEmail('');
+      setPass('');
+      navigate('/profile');
+    })
+    .catch((err) => setIsErr(err));
+    console.log(isErr);
+  }
+
   return (
     <div className={classes.grid}>
-        <div className={classes.container}>
+      <div className={classes.container}>
         <svg viewBox="0 0 24 24" aria-hidden="true" >
           <g>
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
@@ -36,6 +60,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Имя
                   </Text>
                   <TextField.Root
+                    id='name'
                     placeholder="Введите ваше имя"
                   />
                 </label>
@@ -44,6 +69,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Фамилия
                   </Text>
                   <TextField.Root
+                    id='surname'
                     placeholder="Введите вашу фамилию"
                   />
                 </label>
@@ -53,6 +79,8 @@ const Register: React.FC<RegisterProps> = () => {
                   </Text>
                   <TextField.Root
                     type='email'
+                    id='emailReg'
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="example@example.com"
                     required
                   />
@@ -65,6 +93,8 @@ const Register: React.FC<RegisterProps> = () => {
                     Придумайте пароль
                   </Text>
                   <TextField.Root
+                    id='passReg'
+                    onChange={(e) => setPass(e.target.value)}
                     type='password'
                     placeholder="Пароль"
                   />
@@ -77,9 +107,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Link to='/profile'>
-                  <Button>Отправить</Button>
-                </Link>
+                <Button onClick={() => register()}>Отправить</Button>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
