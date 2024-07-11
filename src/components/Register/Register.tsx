@@ -1,5 +1,7 @@
 import classes from './register.module.scss'
 import { Dialog, Flex, Button, Text, TextField, Separator } from '@radix-ui/themes';
+import { Link} from 'react-router-dom';
+
 interface RegisterProps {
   
 }
@@ -74,7 +76,9 @@ const Register: React.FC<RegisterProps> = () => {
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Button>Отправить</Button>
+                <Link to='/profile'>
+                  <Button>Отправить</Button>
+                </Link>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
@@ -119,7 +123,9 @@ const Register: React.FC<RegisterProps> = () => {
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Button>Войти</Button>
+                <Link to='/profile'>
+                  <Button>Войти</Button>
+                </Link>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
