@@ -31,16 +31,16 @@ const Tabnav: React.FC<TabnavProps> = () => {
               <Flex gap="3" align="center">
                 <Avatar
                   size="6"
-                  src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?&w=64&h=64&dpr=2&q=70&crop=focalpoint&fp-x=0.67&fp-y=0.5&fp-z=1.4&fit=crop"
+                  src="https://sun9-78.userapi.com/impg/scCP1jkBmEIP8xqeKLNHw3WuUNDnqJw3AX-KDA/2q95O20VOBo.jpg?size=960x1280&quality=96&sign=06239d72e5d3190da075574058395cb4&type=album"
                   radius="full"
                   fallback="T"
                 />
                 <Box>
                   <Text as="div" size="5" weight="bold">
-                    Teodros Girmay
+                    Timur
                   </Text>
                   <Text as="div" size="3" color="gray">
-                    Engineering
+                    Software Developer
                   </Text>
                 </Box>
                 <Box ml='60%'>
