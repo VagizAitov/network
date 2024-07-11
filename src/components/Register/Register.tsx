@@ -6,7 +6,7 @@ import { auth } from '../../firebase';
 
 import { useState } from 'react';
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 
 interface RegisterProps {
@@ -16,6 +16,10 @@ const Register: React.FC<RegisterProps> = () => {
   const [pass, setPass] = useState('');
   const [email, setEmail] = useState('');
   const [isErr, setIsErr] = useState('false');
+
+  const [passLogin, setPassLogin] = useState('');
+  const [emailLogin, setEmailLogin] = useState('');
+  const [isErrLogin, setIsErrLogin] = useState('');
 
   const navigate = useNavigate();
 
@@ -30,6 +34,19 @@ const Register: React.FC<RegisterProps> = () => {
     })
     .catch((err) => setIsErr(err));
     console.log(isErr);
+  }
+
+  const signIn = () => {
+    signInWithEmailAndPassword(auth, emailLogin, passLogin)
+    .then((user) => {
+      console.log(user);
+      setIsErrLogin('');
+      setEmailLogin('');
+      setPassLogin('');
+      navigate('/profile');
+    })
+    .catch((err) => setIsErrLogin(err));
+    console.log(isErrLogin);
   }
 
   return (
@@ -131,6 +148,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Почта
                   </Text>
                   <TextField.Root
+                    onChange={(e) => setEmailLogin(e.target.value)}
                     type="email"
                     placeholder="example@example.com"
                   />
@@ -140,21 +158,19 @@ const Register: React.FC<RegisterProps> = () => {
                     Пароль
                   </Text>
                   <TextField.Root
+                    onChange={(e) => setPassLogin(e.target.value)}
                     type='password'
                     placeholder="Пароль"
                   />
                 </label>
               </Flex>
-
               <Flex gap="3" mt="4" justify="end">
                 <Dialog.Close>
                   <Button variant="outline" color="gray">
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Link to='/profile'>
-                  <Button>Войти</Button>
-                </Link>
+                <Button onClick={() => signIn()}>Войти</Button>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
