@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { Grid, Button, Box, Card, Flex, Avatar, Text } from "@radix-ui/themes";
 import classes from './profile.module.scss'
 
-// test
-
 interface TabnavProps {
   
 }

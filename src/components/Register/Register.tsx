@@ -2,6 +2,7 @@ import classes from './register.module.scss'
 import { Dialog, Flex, Button, Text, TextField, Separator } from '@radix-ui/themes';
 import { Link} from 'react-router-dom';
 
+
 interface RegisterProps {
   
 }
