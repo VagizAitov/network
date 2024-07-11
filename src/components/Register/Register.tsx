@@ -14,11 +14,11 @@ const Register: React.FC<RegisterProps> = () => {
           </g>
         </svg>
         <div className={classes.form}>
-        <h1>В курсе<br /> происходящего</h1>
-        <h2>Присоединяйтесь сегодня.</h2>
+        <h1 style={{textShadow: '0 0 3px'}}>В курсе<br /> происходящего</h1>
+        <h2 style={{textShadow: '0 0 2px'}}>Присоединяйтесь сегодня.</h2>
         <Dialog.Root>
             <Dialog.Trigger>
-              <Button color='blue' radius='full'>Зарегистрироваться</Button>
+              <Button color='blue' radius='full' style={{boxShadow: '0px 0px 10px '}}>Зарегистрироваться</Button>
             </Dialog.Trigger>
 
             <Dialog.Content maxWidth="450px">
@@ -51,6 +51,7 @@ const Register: React.FC<RegisterProps> = () => {
                   <TextField.Root
                     type='email'
                     placeholder="example@example.com"
+                    required
                   />
                 </label>
                 <label>
@@ -73,9 +74,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Dialog.Close>
-                  <Button>Отправить</Button>
-                </Dialog.Close>
+                <Button>Отправить</Button>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
@@ -84,7 +83,7 @@ const Register: React.FC<RegisterProps> = () => {
           </div>
           <Dialog.Root>
             <Dialog.Trigger>
-              <Button color='blue' radius='full' variant='outline'>Войти</Button>
+              <Button color='blue' radius='full' variant='outline' style={{boxShadow: '0px 0px 10px'}}>Войти</Button>
             </Dialog.Trigger>
 
             <Dialog.Content maxWidth="450px">
@@ -120,9 +119,7 @@ const Register: React.FC<RegisterProps> = () => {
                     Отмена
                   </Button>
                 </Dialog.Close>
-                <Dialog.Close>
-                  <Button>Войти</Button>
-                </Dialog.Close>
+                <Button>Войти</Button>
               </Flex>
             </Dialog.Content>
           </Dialog.Root>
